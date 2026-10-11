@@ -45,7 +45,7 @@ export async function run() {
 		const state = stateStore.get(1)!;
 		const steps = state.step as Record<string, StepEntry>;
 		assert(steps.slow?.status === "failed", "B4: step recorded as failed (retry available)");
-		assert(steps.slow?.error?.includes("timed out"), "B4: error mentions timeout");
+		assert(steps.slow?.error?.includes("timed out") === true, "B4: error mentions timeout");
 	}
 
 	console.log("\nTest B5: step timeout — exhausts attempts → fatal");
